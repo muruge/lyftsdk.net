@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyftSDK.Net", "LyftSDK.Net\LyftSDK.Net.csproj", "{10BD4EE9-0647-4E96-9E69-449DDA47267A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyftSDK.Net.Tests", "LyftSDK.Net.Tests\LyftSDK.Net.Tests.csproj", "{1A1697C5-5025-4E96-A832-43882614501F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10BD4EE9-0647-4E96-9E69-449DDA47267A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BD4EE9-0647-4E96-9E69-449DDA47267A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BD4EE9-0647-4E96-9E69-449DDA47267A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BD4EE9-0647-4E96-9E69-449DDA47267A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1697C5-5025-4E96-A832-43882614501F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1697C5-5025-4E96-A832-43882614501F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1697C5-5025-4E96-A832-43882614501F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1697C5-5025-4E96-A832-43882614501F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

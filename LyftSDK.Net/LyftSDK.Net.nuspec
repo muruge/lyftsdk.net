@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>0.1.0.0</version>
+    <title>Lyft SDK For .NET</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>    
+    <projectUrl>https://github.com/muruge/lyftsdk.net</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First version of Lyft API SDK for .NET</releaseNotes>
+    <copyright>Copyright 2016</copyright>	
+    <tags>Lyft C# .NET SDK Uber</tags>
+	<dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0.4" />
+    </dependencies>
+  </metadata>
+</package>
