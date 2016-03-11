@@ -7,8 +7,8 @@ namespace LyftSDK.Net.Tests
     [TestClass]
     public class LyftClientTests
     {
-        private static string _clientId = "zLos9W3ZPFj4";
-        private static string _clientSecret = "9kv6Pt02qPILkaQnaJimAzR1H-8tTm-l";
+        private static string _clientId = "{YOUR_CLIENT_ID}";
+        private static string _clientSecret = "{YOUR_CLIENT_SECRET}";
 
         [TestMethod]
         public void GetRideTypesTest()
