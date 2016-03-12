@@ -15,6 +15,8 @@ namespace LyftSDK.Net.Auth
         private readonly string _clientSecret;
         private readonly bool _useSandboxEnvironment;
 
+        private AuthorizationToken _authToken;
+
         protected TokenProviderBase(string clientId, string clientSecret, bool useProd = false)
         {
             if (string.IsNullOrWhiteSpace(clientId))
@@ -31,10 +33,13 @@ namespace LyftSDK.Net.Auth
 
         public async Task<AuthorizationToken> GetToken()
         {
+            if (_authToken != null && !_authToken.IsExpired)
+                return _authToken;
+
             string clientSecret = _useSandboxEnvironment ? $"SANDBOX-{_clientSecret}" : _clientSecret;
             var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{ClientId}:{clientSecret}"));
 
-            string content = JsonConvert.SerializeObject(RequestContent());
+            string content = RequestContent();
 
             HttpContent request = new StringContent(content, Encoding.UTF8, "application/json");
 
@@ -43,13 +48,20 @@ namespace LyftSDK.Net.Auth
                 client.BaseAddress = new Uri(Constants.ApiUrlBase);
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", credentials);
 
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); 
+
                 HttpResponseMessage response = await client.PostAsync("oauth/token", request);
 
                 if (!response.IsSuccessStatusCode)
-                    throw new Exception("Cannot obtain authorization token for the given ClientID and ClientSecret.");
+                {
+                    string error = await response.Content.ReadAsStringAsync();
+                    throw new Exception("Cannot obtain authorization token for the given ClientID and ClientSecret. ERROR: " + error);
+                }
+                    
 
-                AuthorizationToken authToken = await response.ReadAs<AuthorizationToken>();
-                return authToken;
+                _authToken = await response.ReadAs<AuthorizationToken>();
+                return _authToken;
             }
         }
     }

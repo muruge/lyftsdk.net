@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <clear/>
+    <add key="Lyft.ClientID" value="{YOUR_LYFT_CLIENT_ID}"/>
+    <add key="Lyft.ClientSecret" value="{YOUR_LYFT_CLIENT_SECRET}"/>
+  </appSettings>
+</configuration>
