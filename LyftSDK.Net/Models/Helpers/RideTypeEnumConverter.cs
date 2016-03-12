@@ -9,13 +9,14 @@ namespace LyftSDK.Net.Models.Helpers
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var rideType = (RideTypeEnum)value;
+            var rideType = (RideTypeEnum) value;
             writer.WriteValue(rideType.GetDescription());
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
-            var value = (string)reader.Value;
+            var value = (string) reader.Value;
 
             return Enum.GetValues(typeof (RideTypeEnum))
                 .Cast<RideTypeEnum>()
@@ -24,7 +25,7 @@ namespace LyftSDK.Net.Models.Helpers
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(string);
+            return objectType == typeof (string);
         }
     }
 }

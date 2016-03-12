@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Web;
 using Newtonsoft.Json;
 
@@ -8,10 +7,11 @@ namespace LyftSDK.Net.Auth
 {
     public class UserAccessTokenProvider : TokenProviderBase
     {
-        private readonly AuthTokenGrantType _tokenType;
         private readonly string _token;
+        private readonly AuthTokenGrantType _tokenType;
 
-        public UserAccessTokenProvider(string clientId, string clientSecret, AuthTokenGrantType tokenType, string token, bool useProd = false)
+        public UserAccessTokenProvider(string clientId, string clientSecret, AuthTokenGrantType tokenType, string token,
+            bool useProd = false)
             : base(clientId, clientSecret, useProd)
         {
             if (string.IsNullOrWhiteSpace(token))
@@ -23,8 +23,8 @@ namespace LyftSDK.Net.Auth
 
         protected override string RequestContent()
         {
-            var content = _tokenType == AuthTokenGrantType.AuthorizationCode 
-                ? JsonConvert.SerializeObject(new AuthCodeRequest(_token)) 
+            var content = _tokenType == AuthTokenGrantType.AuthorizationCode
+                ? JsonConvert.SerializeObject(new AuthCodeRequest(_token))
                 : JsonConvert.SerializeObject(new RefreshTokenRequest(_token));
 
             return content;
@@ -32,7 +32,7 @@ namespace LyftSDK.Net.Auth
 
         public string CreateOAuthUrl(IEnumerable<string> scopes, string state = null)
         {
-            NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
+            var query = HttpUtility.ParseQueryString(string.Empty);
             query["client_id"] = ClientId;
             query["response_type"] = "code";
             query["scope"] = string.Join(" ", scopes);

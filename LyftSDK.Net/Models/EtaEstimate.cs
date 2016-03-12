@@ -6,7 +6,7 @@ namespace LyftSDK.Net.Models
     public class EtaEstimate
     {
         [JsonProperty("ride_type")]
-        [JsonConverter(typeof(RideTypeEnumConverter))]
+        [JsonConverter(typeof (RideTypeEnumConverter))]
         public RideTypeEnum RideType { get; set; }
 
         [JsonProperty("display_name")]

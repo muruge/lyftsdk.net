@@ -9,7 +9,7 @@ namespace LyftSDK.Net.Models
         public PricingDetails PricingDetails { get; set; }
 
         [JsonProperty("ride_type")]
-        [JsonConverter(typeof(RideTypeEnumConverter))]
+        [JsonConverter(typeof (RideTypeEnumConverter))]
         public RideTypeEnum Type { get; set; }
 
         [JsonProperty("display_name")]

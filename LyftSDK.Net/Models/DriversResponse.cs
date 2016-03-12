@@ -7,6 +7,5 @@ namespace LyftSDK.Net.Models
     {
         [JsonProperty("nearby_drivers")]
         public IList<NearbyDriver> NearbyDrivers { get; set; }
-
     }
 }

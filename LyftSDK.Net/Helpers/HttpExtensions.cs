@@ -9,8 +9,8 @@ namespace LyftSDK.Net.Helpers
     {
         internal static async Task<T> ReadAs<T>(this HttpResponseMessage httpResponse) where T : LyftResponse, new()
         {
-            T value = new T();
-            string content = await httpResponse.Content.ReadAsStringAsync();
+            var value = new T();
+            var content = await httpResponse.Content.ReadAsStringAsync();
 
             if (httpResponse.IsSuccessStatusCode)
             {

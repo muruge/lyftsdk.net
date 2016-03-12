@@ -5,7 +5,7 @@ namespace LyftSDK.Net.Auth
     internal class AuthCodeRequest : AuthRequestBase
     {
         public AuthCodeRequest(string authCode)
-           : base(AuthTokenGrantType.AuthorizationCode)
+            : base(AuthTokenGrantType.AuthorizationCode)
         {
             Code = authCode;
         }
