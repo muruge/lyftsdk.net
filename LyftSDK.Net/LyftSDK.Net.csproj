@@ -46,20 +46,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\TokenProviderBase.cs" />
-    <Compile Include="Auth\UserAccessTokenProvider.cs" />
-    <Compile Include="Auth\AccessTokenProvider.cs" />
+    <Compile Include="Auth\UserTokenProvider.cs" />
+    <Compile Include="Auth\ClientTokenProvider.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
     <Compile Include="Helpers\HttpExtensions.cs" />
     <Compile Include="Auth\ITokenProvider.cs" />
-    <Compile Include="Auth\RefreshTokenRequest.cs" />
-    <Compile Include="Auth\AuthRequestBase.cs" />
-    <Compile Include="Auth\AuthTokenGrantType.cs" />
-    <Compile Include="Auth\AuthCodeRequest.cs" />
+    <Compile Include="Auth\AuthTokenType.cs" />
     <Compile Include="Models\Helpers\RideTypeEnumConverter.cs" />
     <Compile Include="LyftClient.cs" />
     <Compile Include="Models\AuthorizationToken.cs" />
-    <Compile Include="Auth\ClientCredentialRequest.cs" />
     <Compile Include="Models\CostEstimate.cs" />
     <Compile Include="Models\CostEstimatesResponse.cs" />
     <Compile Include="Models\Driver.cs" />
@@ -72,6 +68,7 @@
     <Compile Include="Models\LyftResponse.cs" />
     <Compile Include="Models\NearbyDriver.cs" />
     <Compile Include="Models\PricingDetails.cs" />
+    <Compile Include="Models\RideRequest.cs" />
     <Compile Include="Models\RideType.cs" />
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />

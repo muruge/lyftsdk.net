@@ -18,7 +18,7 @@ namespace LyftSDK.Net.Tests
         [TestInitialize]
         public void Init()
         {
-            _lyftTokenProvider = new AccessTokenProvider(_clientId, _clientSecret, true);
+            _lyftTokenProvider = new ClientTokenProvider(_clientId, _clientSecret, true);
             _client = new LyftClient(_lyftTokenProvider);
         }
 

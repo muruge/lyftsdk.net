@@ -29,14 +29,19 @@ namespace LyftSDK.Net.Auth
             _useSandboxEnvironment = !useProd;
         }
 
+        protected string GetAuthHeader()
+        {
+            var clientSecret = _useSandboxEnvironment ? $"SANDBOX-{_clientSecret}" : _clientSecret;
+            var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{ClientId}:{clientSecret}"));
+            return credentials;
+        }
+
         public async Task<AuthorizationToken> GetToken()
         {
             if (_authToken != null && !_authToken.IsExpired)
                 return _authToken;
 
-            var clientSecret = _useSandboxEnvironment ? $"SANDBOX-{_clientSecret}" : _clientSecret;
-            var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{ClientId}:{clientSecret}"));
-
+            var credentials = GetAuthHeader();
             var content = RequestContent();
 
             HttpContent request = new StringContent(content, Encoding.UTF8, "application/json");
