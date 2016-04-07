@@ -13,6 +13,6 @@ namespace LyftSDK.Net.Models
         public string DisplayName { get; set; }
 
         [JsonProperty("eta_seconds")]
-        public int EtaSeconds { get; set; }
+        public int? EtaSeconds { get; set; }
     }
 }
