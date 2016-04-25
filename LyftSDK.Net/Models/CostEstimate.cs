@@ -22,7 +22,7 @@ namespace LyftSDK.Net.Models
         public int EstimatedCostCentsMin { get; set; }
 
         [JsonProperty("estimated_distance_miles")]
-        public double EstimatedDistanceMiles { get; set; }
+        public double? EstimatedDistanceMiles { get; set; }
 
         [JsonProperty("estimated_duration_seconds")]
         public int EstimatedDurationSeconds { get; set; }
