@@ -45,7 +45,24 @@ namespace LyftSDK.Net
             return response;
         }
 
-        public async Task<CostEstimatesResponse> GetCostEstimatesAsync(Location startLocation, Location endLocation,
+	    public async Task<RideListResponse> GetRidesAsync(DateTime startTime, DateTime endTime, int limit = 10)
+	    {
+		    var query = HttpUtility.ParseQueryString(string.Empty);
+		    query["start_time"] = TimeToString(startTime);  // "2016-12-09T00:00:00+00:00"
+		    query["end_time"] = TimeToString(endTime);  //"2016-12-12T00:00:00+00:00";
+		    query["limit"] = limit.ToString(CultureInfo.InvariantCulture);
+
+		    var response = await GetFromApiAsync<RideListResponse>($"rides?{query}");
+		    return response;
+	    }
+
+	    private static string TimeToString(DateTime dt)
+	    {
+		    // The earliest date is '2015-01-01T00:00:00+00:00'
+		    return $"{dt:yyyy-MM-ddTHH:mm:sszzz}";
+	    }
+
+		public async Task<CostEstimatesResponse> GetCostEstimatesAsync(Location startLocation, Location endLocation,
             RideTypeEnum? rideType = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);

@@ -65,13 +65,20 @@
     <Compile Include="Models\ErrorDetail.cs" />
     <Compile Include="Models\EtaEstimate.cs" />
     <Compile Include="Models\EtaEstimatesResponse.cs" />
+    <Compile Include="Models\LineItem.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationAndTime.cs" />
     <Compile Include="Models\LyftResponse.cs" />
     <Compile Include="Models\NearbyDriver.cs" />
+    <Compile Include="Models\Passenger.cs" />
+    <Compile Include="Models\Price.cs" />
     <Compile Include="Models\PricingDetails.cs" />
+    <Compile Include="Models\RideHistory.cs" />
+    <Compile Include="Models\RideListResponse.cs" />
     <Compile Include="Models\RideType.cs" />
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
