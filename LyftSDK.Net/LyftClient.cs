@@ -101,6 +101,20 @@ namespace LyftSDK.Net
 		    return await PostToApiAsync<RideResponse>(url, content);
 	    }
 
+		public async Task<RideResponse> PutRideSandboxAsync(string rideID)
+        {
+            string url = $"sandbox/rides/{rideID}";
+            dynamic postData = new
+            {
+                ride_id = rideID,
+                status = "accepted"
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
+            var response = await PutFromApiSandboxAsync<RideResponse>(url, content);
+            return response;
+        }
+
         #region private methods
 
         private async Task<T> GetFromApiAsync<T>(string url)
@@ -136,6 +150,23 @@ namespace LyftSDK.Net
 			    client?.Dispose();
 		    }
 	    }
+
+		private async Task<T> PutFromApiSandboxAsync<T>(string url, HttpContent content)
+		where T : LyftResponse, new()
+		{
+			var client = await CreateHttpClient();
+
+			try
+			{
+				var apiResponse = await client.PutAsync(url, content);
+				var responseData = await apiResponse.ReadAs<T>();
+				return responseData;
+			}
+			finally
+			{
+				client?.Dispose();
+			}
+		}
 
         private async Task<HttpClient> CreateHttpClient()
         {
