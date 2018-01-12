@@ -75,6 +75,7 @@
     <Compile Include="Models\PricingDetails.cs" />
     <Compile Include="Models\RideHistory.cs" />
     <Compile Include="Models\RideListResponse.cs" />
+    <Compile Include="Models\RideResponse.cs" />
     <Compile Include="Models\RideType.cs" />
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />

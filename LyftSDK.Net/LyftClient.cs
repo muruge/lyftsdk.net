@@ -62,6 +62,12 @@ namespace LyftSDK.Net
 		    return $"{dt:yyyy-MM-ddTHH:mm:sszzz}";
 	    }
 
+	    public async Task<RideResponse> GetRideAsync(string rideID)
+	    {
+		    var response = await GetFromApiAsync<RideResponse>($"rides/{rideID}");
+		    return response;
+	    }
+
 		public async Task<CostEstimatesResponse> GetCostEstimatesAsync(Location startLocation, Location endLocation,
             RideTypeEnum? rideType = null)
         {
