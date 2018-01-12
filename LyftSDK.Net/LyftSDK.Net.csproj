@@ -54,6 +54,8 @@
     <Compile Include="Helpers\HttpExtensions.cs" />
     <Compile Include="Auth\ITokenProvider.cs" />
     <Compile Include="Auth\AuthTokenType.cs" />
+    <Compile Include="Models\Charge.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Helpers\RideTypeEnumConverter.cs" />
     <Compile Include="LyftClient.cs" />
     <Compile Include="Models\AuthorizationToken.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\WebHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
