@@ -69,7 +69,6 @@
     <Compile Include="Models\LyftResponse.cs" />
     <Compile Include="Models\NearbyDriver.cs" />
     <Compile Include="Models\PricingDetails.cs" />
-    <Compile Include="Models\RideRequest.cs" />
     <Compile Include="Models\RideType.cs" />
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />
