@@ -115,6 +115,21 @@ namespace LyftSDK.Net
             return response;
         }
 
+		public async Task<RideResponse> PutPrimetimeSandboxAsync(float latitude, float longitude, byte primetimePercentage)
+		{
+			string url = "sandbox/primetime";
+			dynamic postData = new
+			{
+				lat = latitude,
+				lng = longitude,
+				primetime_percentage = primetimePercentage + "%"
+			};
+
+			var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
+			var response = await PutFromApiSandboxAsync<RideResponse>(url, content);
+			return response;
+		}
+
         #region private methods
 
         private async Task<T> GetFromApiAsync<T>(string url)
