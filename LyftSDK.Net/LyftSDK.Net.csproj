@@ -54,6 +54,7 @@
     <Compile Include="Helpers\HttpExtensions.cs" />
     <Compile Include="Auth\ITokenProvider.cs" />
     <Compile Include="Auth\AuthTokenType.cs" />
+    <Compile Include="Helpers\LyftSignature.cs" />
     <Compile Include="Models\Charge.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Helpers\RideTypeEnumConverter.cs" />
