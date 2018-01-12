@@ -2,11 +2,13 @@
 using System.Globalization;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using LyftSDK.Net.Auth;
 using LyftSDK.Net.Helpers;
 using LyftSDK.Net.Models;
+using Newtonsoft.Json;
 
 namespace LyftSDK.Net
 {
@@ -84,6 +86,21 @@ namespace LyftSDK.Net
             return response;
         }
 
+		public async Task<RideResponse> PostRideAsync(Location startLocation, Location endLocation, RideTypeEnum rideType, string primetimeConfirmationToken = null)
+	    {
+		    string url = "rides";
+		    var postData = new Ride
+		    {
+			    StartLocation = startLocation,
+			    EndLocation = endLocation,
+			    Type = rideType,
+			    PrimetimeConfirmationToken = primetimeConfirmationToken
+		    };
+
+		    var content = new StringContent(JsonConvert.SerializeObject(postData), Encoding.UTF8, "application/json");
+		    return await PostToApiAsync<RideResponse>(url, content);
+	    }
+
         #region private methods
 
         private async Task<T> GetFromApiAsync<T>(string url)
@@ -102,6 +119,23 @@ namespace LyftSDK.Net
                 client?.Dispose();
             }
         }
+
+		private async Task<T> PostToApiAsync<T>(string url, HttpContent content)
+		    where T : LyftResponse, new()
+	    {
+		    var client = await CreateHttpClient();
+
+		    try
+		    {
+			    var apiResponse = await client.PostAsync(url, content);
+			    var responseData = await apiResponse.ReadAs<T>();
+			    return responseData;
+		    }
+		    finally
+		    {
+			    client?.Dispose();
+		    }
+	    }
 
         private async Task<HttpClient> CreateHttpClient()
         {
