@@ -54,6 +54,10 @@
     <Compile Include="Helpers\HttpExtensions.cs" />
     <Compile Include="Auth\ITokenProvider.cs" />
     <Compile Include="Auth\AuthTokenType.cs" />
+    <Compile Include="Helpers\LyftSignature.cs" />
+    <Compile Include="Models\Charge.cs" />
+    <Compile Include="Models\DriverLocation.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Helpers\RideTypeEnumConverter.cs" />
     <Compile Include="LyftClient.cs" />
     <Compile Include="Models\AuthorizationToken.cs" />
@@ -65,14 +69,23 @@
     <Compile Include="Models\ErrorDetail.cs" />
     <Compile Include="Models\EtaEstimate.cs" />
     <Compile Include="Models\EtaEstimatesResponse.cs" />
+    <Compile Include="Models\LineItem.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationAndTime.cs" />
     <Compile Include="Models\LyftResponse.cs" />
     <Compile Include="Models\NearbyDriver.cs" />
+    <Compile Include="Models\Passenger.cs" />
+    <Compile Include="Models\Price.cs" />
     <Compile Include="Models\PricingDetails.cs" />
-    <Compile Include="Models\RideRequest.cs" />
+    <Compile Include="Models\Ride.cs" />
+    <Compile Include="Models\RideHistory.cs" />
+    <Compile Include="Models\RideListResponse.cs" />
+    <Compile Include="Models\RideResponse.cs" />
     <Compile Include="Models\RideType.cs" />
     <Compile Include="Models\RideTypeEnum.cs" />
     <Compile Include="Models\RideTypesResponse.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\WebHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

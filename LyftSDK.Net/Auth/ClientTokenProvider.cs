@@ -14,8 +14,8 @@ namespace LyftSDK.Net.Auth
             var clientTokenReq = new
             {
                 grant_type = "client_credentials",
-                scope = "public"
-            };
+                scope = "public rides.request rides.read"
+			};
 
             string content = JsonConvert.SerializeObject(clientTokenReq);
             return content;
